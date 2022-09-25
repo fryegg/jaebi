@@ -74,8 +74,8 @@ function createUL(num) {
         var div1 = document.createElement("div");
         var img1 = document.createElement("img");
         // Add img src
-        img1.src = "./img/symbol-of-spades.png";
-        img1.alt = "symbol-of-spades.png"
+        img1.src = "./img/question.png";
+        img1.alt = "question.png"
         // Add img child
         div1.appendChild(img1);
         // Add classlist
@@ -93,10 +93,10 @@ function createBoom(num, boomNum) {
     var lis = ul.getElementsByTagName("li");
 
     // make array grapes: 통과 cupcake: 꽝
-    boomName = "toffee.png";
+    boomName = "bomb.png";
     boomarr = Array(boomNum).fill(boomName);
 
-    passName = "cupcake.png";
+    passName = "smile.png";
     passarr = Array(num - boomNum).fill(passName);
 
     let imgarr = boomarr.concat(passarr);
