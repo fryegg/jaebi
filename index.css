@@ -126,23 +126,25 @@ span {
 
 
 #set__total {
-    width: 160px;
+    width: 50vh;
     height: 40px;
     align-items: center;
+    text-align: center;
     display:inline-block;
-    margin-left:400px;
-
 }
 
 #set__boom {
-    width: 160px;
+    width: 50vh;
     height: 40px;
     align-items: center;
+    text-align: center;
     display:inline-block;
 
 }
 
-
+/* #set__start, #set__init{
+    width: 100vh;
+} */
 #set__start span, #set__init span {
     height: 34px;
     width: 100px;
