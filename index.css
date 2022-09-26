@@ -18,7 +18,7 @@ img {
 }
 
 body {
-    background: #7345fd;
+    background: #e0189e;
 }
 
 .wrap__card {
@@ -30,10 +30,11 @@ body {
 
 .card__inner {
     width: 700px;
-    height: 700px;
+    height: 400px;
     background-color: #fff;
     border-radius: 20px;
     padding: 30px;
+    align-items: center;
 }
 
 .cards {
@@ -48,7 +49,7 @@ body {
 
 .cards li {
     width: calc(100% / 4 - 20px);
-    height: calc(100% / 4 - 20px);
+    padding-bottom: calc(100% / 4 - 20px);
     border: 1px solid #ccc;
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -125,6 +126,7 @@ span {
 
 
 #set__total {
+    width: 160px;
     height: 40px;
     align-items: center;
     display:inline-block;
@@ -133,6 +135,7 @@ span {
 }
 
 #set__boom {
+    width: 160px;
     height: 40px;
     align-items: center;
     display:inline-block;
