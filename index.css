@@ -123,15 +123,43 @@ span {
     margin: 100px;
 }
 
+
+#set__total {
+    height: 40px;
+    align-items: center;
+    display:inline-block;
+    margin-left:400px;
+
+}
+
+#set__boom {
+    height: 40px;
+    align-items: center;
+    display:inline-block;
+
+}
+
+
+#set__start span, #set__init span {
+    height: 34px;
+    width: 100px;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #ddd;
+    background: #f2f2f2;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 30px;
+    margin-left:500px;
+
+}
+
 .minus,
 .plus {
     width: 20px;
     height: 20px;
     background: #f2f2f2;
-    border-radius: 4px;
-    padding: 8px 5px 8px 5px;
-    border: 1px solid #ddd;
-    display: inline-block;
     vertical-align: middle;
     text-align: center;
 }
