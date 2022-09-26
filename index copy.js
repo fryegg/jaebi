@@ -1,3 +1,4 @@
+//https://github.com/wonseok22/ToyProjects/tree/main/cardGame 참고
 let cardOne, cardTwo; // 선택한 카드
 let disableDeck = false;
 

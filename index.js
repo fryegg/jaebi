@@ -1,3 +1,5 @@
+//https://github.com/wonseok22/ToyProjects/tree/main/cardGame 참고
+
 let cardOne, cardTwo; // 선택한 카드
 let disableDeck = false;
 
@@ -21,39 +23,41 @@ function randomShuffle(array) {
 
 // 총개수  꽝개수 
 function setPlus(e) {
-    var total = parseInt(document.getElementById("set__total").children[1].value);
-    if (total < 10) {
-        document.getElementById("set__total").children[1].value = total + 1;
+    var val = parseInt(document.getElementById("set__boom").children[2].value);
+    var total = parseInt(document.getElementById("set__total").children[2].value);
+    if (total < 10 && val <= total) {
+        document.getElementById("set__total").children[2].value = total + 1;
     }
     deleteUL();
-    createUL(document.getElementById("set__total").children[1].value);
+    createUL(document.getElementById("set__total").children[2].value);
 
 }
 
 function setMinus(e) {
-    var total = parseInt(document.getElementById("set__total").children[1].value);
-    if (total > 2) {
-        document.getElementById("set__total").children[1].value = total - 1;
+    var val = parseInt(document.getElementById("set__boom").children[2].value);
+    var total = parseInt(document.getElementById("set__total").children[2].value);
+    if (total > 2 && val < total) {
+        document.getElementById("set__total").children[2].value = total - 1;
     }
     deleteUL();
-    createUL(document.getElementById("set__total").children[1].value);
+    createUL(document.getElementById("set__total").children[2].value);
 }
 
 function setPlus2(e) {
 
-    var val = parseInt(document.getElementById("set__boom").children[1].value);
-    var total = parseInt(document.getElementById("set__total").children[1].value);
+    var val = parseInt(document.getElementById("set__boom").children[2].value);
+    var total = parseInt(document.getElementById("set__total").children[2].value);
     if (val < 10 && val < total) {
-        document.getElementById("set__boom").children[1].value = val + 1;
+        document.getElementById("set__boom").children[2].value = val + 1;
     }
 }
 
 function setMinus2(e) {
 
-    var val = parseInt(document.getElementById("set__boom").children[1].value);
-    var total = parseInt(document.getElementById("set__total").children[1].value);
+    var val = parseInt(document.getElementById("set__boom").children[2].value);
+    var total = parseInt(document.getElementById("set__total").children[2].value);
     if (val > 2 && val <= total) {
-        document.getElementById("set__boom").children[1].value = val - 1;
+        document.getElementById("set__boom").children[2].value = val - 1;
     }
 }
 
@@ -68,8 +72,6 @@ async function deleteUL() {
 function createUL(num) {
     for (let i = 0; i < num; i++) {
         var ul = document.querySelector(".cards");
-        console.log(num);
-        console.log(li);
         var li = document.createElement("li");
         var div1 = document.createElement("div");
         var img1 = document.createElement("img");
@@ -138,8 +140,8 @@ function flipCard(e) {
 
 function startClick() {
     // 시작 클릭 -> 꽝 배정 -> 카드 뒤집기
-    var val = parseInt(document.getElementById("set__boom").children[1].value);
-    var total = parseInt(document.getElementById("set__total").children[1].value);
+    var val = parseInt(document.getElementById("set__boom").children[2].value);
+    var total = parseInt(document.getElementById("set__total").children[2].value);
     createBoom(total, val);
     var cards = document.querySelectorAll(".cards li");
     cards.forEach(card => {
@@ -171,6 +173,7 @@ function removeOption() {
     var panelminus2 = document.querySelector("#set__boom .minus");
     var panelstart = document.querySelector("#set__start .start");
     var panelinit = document.querySelector("#set__init .init");
+
     panelinit.style.display = 'none';
     // start
     panelstart.addEventListener("click", function () {
@@ -181,6 +184,19 @@ function removeOption() {
         panelminus.removeEventListener("click", setMinus);
         panelplus2.removeEventListener("click", setPlus2);
         panelminus2.removeEventListener("click", setMinus2);
+
+        // 카드 흔들기
+        var cards = document.querySelectorAll(".cards li");
+        console.log(cards);
+        cards.forEach(card => {
+            setTimeout(() => {
+                card.classList.add("shake");
+            }, 400);
+    
+            setTimeout(() => {
+                card.classList.remove("shake");
+            }, 1200);
+        });
 
         panelinit.style.display = '';
         panelinit.addEventListener("click", initOption);
@@ -204,7 +220,7 @@ function initOption(){
     panelminus2.addEventListener("click", setMinus2);
 
     deleteUL().then(
-        function(value) { createUL(document.getElementById("set__total").children[1].value);},
+        function(value) { createUL(document.getElementById("set__total").children[2].value);},
         function(error) { throw(error); }
       );
 }
@@ -213,4 +229,4 @@ function initOption(){
 setOption();
 removeOption();
 // init first cards 5
-createUL(document.getElementById("set__total").children[1].value);
+createUL(document.getElementById("set__total").children[2].value);
